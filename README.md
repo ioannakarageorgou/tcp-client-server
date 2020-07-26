@@ -1,4 +1,4 @@
-Multithreaded TCP Client-Server connection using Sockets 
+## Multithreaded TCP Client-Server connection using Sockets 
 
 #### Server
 In main.c server is getting ready to establish a connection following the socket, bind,listen and accept prerequisite steps. He manages his connection via select and serving one client ata time.Then he is ready to read and offer his services to the clients.When he receives a LOG_ON message he uses the functions: server_Log_On, takeClientInfo, searchL and reply_to_clients, in order to store this client in his active clients list and inform the other connected clients about the the presence of the new one.He follows similarly steps when he received LOG_OFF ,using the functions: takeClientInfo,deleteNode and reply_to_clients.When he receives a GET_CLIENTS message ,he parses the client list and sends to the asking client a string with all the information about the other connected client to him.Server terminates when he receives a SIGINT from the user (cleaning up his allocated memory).
